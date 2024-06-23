@@ -1,0 +1,23 @@
+{
+  "name": "birthday-wishes",
+  "version": "1.0.0",
+  "description": "Send a birthday wish to celebrants of the day",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "ZION JOHNSON",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.3",
+    "node-schedule": "^2.1.1",
+    "nodemailer": "^6.9.14"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
