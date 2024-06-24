@@ -2,6 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const nodemailer = require("nodemailer");
 const schedule = require("node-schedule");
+
+const cors = require('cors')
 const db = require("./database/connection");
 const User = require("./model/userSchema");
 
@@ -11,6 +13,8 @@ dotenv.config();
 app.use(express.json());
 
 app.use(express.static("public"));
+
+app.use(cors())
 
 db();
 
