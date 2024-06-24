@@ -21,7 +21,15 @@ async function sendData(data) {
       body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
     console.log(await response.json());
-    alert("Success");
+
+    if (response.status == 200) {
+      return alert("Success");
+    }
+    else if (response.status == 400) {
+      return alert("unsuccessful, user already exist");
+    } else {
+      return alert("Server error");
+    }
   } catch (e) {
     console.error(e);
   }
@@ -29,7 +37,7 @@ async function sendData(data) {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  if (name.value == "") {
+  if (fav_name.value == "") {
     alert("Please enter your favorite name");
   }
   if (email.value == "") {
@@ -48,5 +56,9 @@ form.addEventListener("submit", (event) => {
     const data = { name_text, email_text, day_text, month_text };
 
     sendData(data);
+    fav_name.value = "";
+    email.value = "";
+    day.value = "";
+    month.value = "";
   }
 });

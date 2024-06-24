@@ -41,19 +41,23 @@ app.post("/v1/join", async (req, res) => {
   }
 
   try {
-    const user = new User({
-      ...payload,
-    });
+    const check = await User.findOne({ email: email });
+    if (check) {
+      return res.status(400).json({ message: "unsuccessful, user already exist"});
+    } else {
+      const user = new User({
+        ...payload,
+      });
 
-    const savedUser = await user.save();
-    console.log(savedUser);
+      const savedUser = await user.save();
+      console.log(savedUser);
 
-    return res.json({ message: "successful", savedUser });
+      return res.status(200).json({ message: "success", savedUser });
+    }
   } catch (error) {
     console.log(error.message);
   }
 });
-
 
 // setup transporter
 let transporter = nodemailer.createTransport({
