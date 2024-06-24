@@ -10,7 +10,11 @@ async function sendData(data) {
   // const formData = new FormData(form);
 
   try {
-    const response = await fetch("http://localhost:8000/v1/join", {
+    //for dev
+    // const response = await fetch("http://localhost:8000/v1/join", {
+
+    //for production
+      const response = await fetch("https://birthday-wishes-q8gj.onrender.com/v1/join", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
