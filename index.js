@@ -122,8 +122,8 @@ let allCelebrants = (array) => {
 };
 
 //actual cron job function
-// schedule.scheduleJob("0 7 * * *", async () => {
-  schedule.scheduleJob("*/2 * * * *", async () => {
+schedule.scheduleJob("0 7 * * *", async () => {
+  // schedule.scheduleJob("*/2 * * * *", async () => {
   // cron job every 07:00am
 
   //find in db or array

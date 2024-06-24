@@ -1,0 +1,6 @@
+@import "shared/fonts.css";
+@import "shared/responsive.css";
+
+:root {
+  font-family: "Gotham Rounded"; 
+}
