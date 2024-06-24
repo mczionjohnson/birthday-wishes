@@ -15,15 +15,16 @@ app.use(express.static("public"));
 db();
 
 //using static html instead
-// app.get("/", (req, res) => {
+// app.get("/v1", (req, res) => {
 //   res.send("Add some glamour to your special day");
 // });
 
 //user signup form
-app.post("/join", async (req, res) => {
+app.post("/v1/join", async (req, res) => {
   const name = req.body.name_text;
   const email = req.body.email_text;
-  const dob = req.body.dob_text;
+  const day = req.body.day_text
+  const month = req.body.month_text;
 
   const payload = {};
   if (name) {
@@ -32,8 +33,11 @@ app.post("/join", async (req, res) => {
   if (email) {
     payload.email = email;
   }
-  if (dob) {
-    payload.dob = dob;
+  if (day) {
+    payload.day = day;
+  }  
+  if (month) {
+    payload.month = month;
   }
 
   try {
@@ -94,7 +98,7 @@ let allCelebrants = (array) => {
       from: "mczionjohnson@gmail.com",
       to: `${val.email}`,
       subject: `Happy birthday ${val.name}`,
-      html: '<p style="font-size:16px;color:#666;">Birthday come once in a year to remind you how awesome you are. Steeze 100% Composure 100% :) break a leg!</p><img src="cid:uniqueImage@images.ee"/>',
+      html: '<p style="font-size:16px;color:#666;" >Birthday come once in a year to remind you how awesome you are. Steeze 100% Composure 100% :) break a leg! </p> <img src="cid:uniqueImage@images.ee" />',
       attachments: [
         {
           filename: "name.jpg",
@@ -110,7 +114,7 @@ let allCelebrants = (array) => {
       if (err) {
         console.log("Error " + err);
       } else {
-        console.log("Email sent successfully");
+        console.log(`Email sent successfully to ${val.email}`);
       }
     });
   });
@@ -133,9 +137,9 @@ schedule.scheduleJob("0 7 * * *", async () => {
     $and: [{ day: day }, { month: convertedMonth }],
   });
 
-  if (users != null) {
+  if (users.length >= 1) {
     console.log(`We have ${users.length} celebrants today, Hurray!`);
-    // return allCelebrants(users);
+    return allCelebrants(users);
   } else {
     return console.log("well, well, well, no celebrants today");
   }

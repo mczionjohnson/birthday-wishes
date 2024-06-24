@@ -10,7 +10,11 @@ const userSchema = mongoose.Schema({
     unique: true,
     required: true,
   },
-  dob: {
+  day: {
+    type: String,
+    required: true,
+  },
+  month: {
     type: String,
     required: true,
   },

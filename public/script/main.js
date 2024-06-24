@@ -9,7 +9,7 @@ async function sendData(data) {
   // const formData = new FormData(form);
 
   try {
-    const response = await fetch("http://localhost:8000/join", {
+    const response = await fetch("http://localhost:8000/vi/join", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
