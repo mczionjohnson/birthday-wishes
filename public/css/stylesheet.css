@@ -1,6 +1,31 @@
 @import "shared/fonts.css";
 @import "shared/responsive.css";
+@import "shared/main.css";
 
 :root {
-  font-family: "Gotham Rounded"; 
+  font-family: "Gotham Rounded";
+}
+
+@media only screen and (max-width: 768px) {
+ 
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: small;
+  }
+  .container {
+    margin: 0;
+  }
+  .form-input {
+    display: grid;
+    margin: 0 1rem;
+  }
+  .form-text {
+    width: fit-content;
+    margin-bottom: 1rem;
+  }
+  .icon-text {
+    padding-top: 0;
+  }
 }

@@ -1,22 +1,52 @@
 /* Responsiveness */
 @media only screen and (max-width: 1024px) {
-  .about-me-sm {
-    width: 350px;
-    padding: 1rem;
+  /* body {
+    margin: 0;
+    display: flex;
+  } */
+  
+  .container {
+    margin: 0;
   }
-
-  .name-card-text {
-    font-size: 2rem;
+  
+  /* .form-input {
+    margin: 1rem;
   }
-
-  .name-card-role {
-    font-size: 1rem;
+  
+  .btn {
+    margin: 1rem;
   }
-
-  .about-me-text {
-    font-size: 0.8rem;
-
+  
+  .btn-text {
+    color: #fff;
+    background-color: #0000ff;
+    border: none;
+    padding: 0.4rem;
   }
+  
+  .btn-text:hover{
+      color: #fff;
+      background-color: #000;
+  
+  }
+  
+  #sendBtn {
+    font-family: "Gotham Rounded";
+  }
+  
+  .footer-card{
+      display: flex;
+  }
+  
+  .icon-text{
+      padding-top: 0.7rem;
+      margin-right: 1rem;
+  }
+  
+  .footer-mail{
+      text-decoration: none;
+  } */
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -125,25 +155,7 @@
 
 @media only screen and (max-width: 600px) {
 
-  .navbar-nav ul a {
-    font-size: 10px;
-    color: #808080;
-  }
-
-  .project-wrapper {
-    display: grid;
-    /* height: 280px; */
-    width: 280px;
-  }
-
-  .project-card {
-    margin: auto;
-    margin-bottom: 1rem;
-    max-width: 100%;
-  }
-  .footer-text,
-  .footer-mail {
-    /* margin: auto; */
-    font-size: 10px;
+  .container {
+    margin: 0;
   }
 }

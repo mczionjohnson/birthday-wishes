@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    display: flex;
+    font-size: medium;
+  }
+  
+  .container {
+    margin: auto;
+    margin-top: 3rem;
+    padding: 2rem;
+    border-color: aqua;
+    border-style: solid;
+  }
+  
+  .form-input {
+    margin: 1rem;
+  }
+  
+  .btn {
+    margin: 1rem;
+  }
+  
+  .btn-text {
+    color: #fff;
+    background-color: #0000ff;
+    border: none;
+    padding: 0.4rem;
+  }
+  
+  .btn-text:hover{
+      color: #fff;
+      background-color: #000;
+  
+  }
+  
+  #sendBtn {
+    font-family: "Gotham Rounded";
+  }
+  
+  .footer-card{
+      display: flex;
+  }
+  
+  .icon-text{
+      padding-top: 0.7rem;
+      margin-right: 1rem;
+  }
+  
+  .footer-mail{
+      text-decoration: none;
+  }
