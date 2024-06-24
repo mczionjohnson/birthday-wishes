@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const nodemailer = require("nodemailer");
 const schedule = require("node-schedule");
 
-const cors = require('cors')
+const cors = require("cors");
 const db = require("./database/connection");
 const User = require("./model/userSchema");
 
@@ -14,14 +14,14 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.use(cors())
+app.use(cors());
 
 db();
 
 //using static html instead
-// app.get("/v1", (req, res) => {
-//   res.send("Add some glamour to your special day");
-// });
+app.get("/", (req, res) => {
+  console.log("user visit the page");
+});
 
 //user signup form
 app.post("/v1/join", async (req, res) => {
@@ -47,14 +47,17 @@ app.post("/v1/join", async (req, res) => {
   try {
     const check = await User.findOne({ email: email });
     if (check) {
-      return res.status(400).json({ message: "unsuccessful, user already exist"});
+      console.log("unsuccessful, user already exist");
+      return res
+        .status(400)
+        .json({ message: "unsuccessful, user already exist" });
     } else {
       const user = new User({
         ...payload,
       });
 
       const savedUser = await user.save();
-      console.log(savedUser);
+      console.log({ message: "new user saved", savedUser });
 
       return res.status(200).json({ message: "success", savedUser });
     }
