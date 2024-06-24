@@ -19,9 +19,9 @@ app.use(cors());
 db();
 
 //using static html instead
-app.get("/", (req, res) => {
-  console.log("user visit the page");
-});
+// app.get("/", (req, res) => {
+//   console.log("user visit the page");
+// });
 
 //user signup form
 app.post("/v1/join", async (req, res) => {
