@@ -32,7 +32,7 @@ async function sendData(data) {
     }
   } catch (error) {
     console.error(error);
-    return alert(error.message);
+    return alert(e);
   }
 }
 
