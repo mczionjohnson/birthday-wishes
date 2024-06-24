@@ -30,8 +30,9 @@ async function sendData(data) {
     } else {
       return alert("Server error");
     }
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
+    return alert(error.message);
   }
 }
 
