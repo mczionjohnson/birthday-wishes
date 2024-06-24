@@ -1,7 +1,8 @@
 // const sendBtn = document.getElementById("sendBtn");
-const name = document.getElementById("name");
+const fav_name = document.getElementById("name");
 const email = document.getElementById("email");
-const dob = document.getElementById("dob");
+const day = document.getElementById("day");
+const month = document.getElementById("month");
 const form = document.querySelector("#userInfo");
 
 async function sendData(data) {
@@ -9,7 +10,7 @@ async function sendData(data) {
   // const formData = new FormData(form);
 
   try {
-    const response = await fetch("http://localhost:8000/vi/join", {
+    const response = await fetch("http://localhost:8000/v1/join", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +21,7 @@ async function sendData(data) {
       body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
     console.log(await response.json());
-    alert("Thank you");
+    alert("Success");
   } catch (e) {
     console.error(e);
   }
@@ -29,18 +30,22 @@ async function sendData(data) {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   if (name.value == "") {
-    alert("Please enter name");
+    alert("Please enter your favorite name");
   }
   if (email.value == "") {
     alert("Please enter email");
   }
-  if (dob.value == "") {
-    alert("Please enter date of birth");
+  if (day.value == "") {
+    alert("Please enter day of birth");
+  }
+  if (month.value == "") {
+    alert("Please enter month of birth");
   } else {
-    let name_text = name.value;
+    let name_text = fav_name.value;
     let email_text = email.value;
-    let dob_text = dob.value;
-    const data = { name_text, email_text, dob_text };
+    let day_text = day.value;
+    let month_text = month.value;
+    const data = { name_text, email_text, day_text, month_text };
 
     sendData(data);
   }

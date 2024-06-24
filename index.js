@@ -23,7 +23,7 @@ db();
 app.post("/v1/join", async (req, res) => {
   const name = req.body.name_text;
   const email = req.body.email_text;
-  const day = req.body.day_text
+  const day = req.body.day_text;
   const month = req.body.month_text;
 
   const payload = {};
@@ -35,7 +35,7 @@ app.post("/v1/join", async (req, res) => {
   }
   if (day) {
     payload.day = day;
-  }  
+  }
   if (month) {
     payload.month = month;
   }
@@ -53,6 +53,7 @@ app.post("/v1/join", async (req, res) => {
     console.log(error.message);
   }
 });
+
 
 // setup transporter
 let transporter = nodemailer.createTransport({
@@ -121,7 +122,8 @@ let allCelebrants = (array) => {
 };
 
 //actual cron job function
-schedule.scheduleJob("0 7 * * *", async () => {
+// schedule.scheduleJob("0 7 * * *", async () => {
+  schedule.scheduleJob("*/2 * * * *", async () => {
   // cron job every 07:00am
 
   //find in db or array
@@ -129,7 +131,6 @@ schedule.scheduleJob("0 7 * * *", async () => {
   const [year, month, day] = date.split("-");
 
   convertedMonth = today(month);
-
 
   //find users
   console.log("searching for celebrants...");

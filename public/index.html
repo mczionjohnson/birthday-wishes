@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Birthday wishes</title>
-    <link rel="icon" href="./favicon.png" />
+    <link rel="icon" href="favicon1.png" />
+    <script src="https://use.fontawesome.com/3b96c4ac7e.js"></script>
   </head>
   <body>
-    <h1>Join us for some fun</h1>
+    <div>
+      <h1>Join us for some fun</h1>
+    </div>
     <div>
       <h4>Example:</h4>
-      <p><strong>Name:</strong> Nana</p>
+      <p><strong>Favorite Name:</strong> Nana</p>
       <p><strong>Email:</strong> Nana@example.com</p>
 
-      <h5>Date of birth format: 25 Jun</h5>
+      <p><i>Date of birth format: 25 Jun</i></p>
       <p><strong>Day:</strong> 25</p>
       <p><strong>Month </strong><i>(in 3 letters format)</i>: Jun</p>
     </div>
@@ -21,7 +24,7 @@
     <div>
       <h4>Fill the form</h4>
       <form id="userInfo">
-        <label for="name">Name</label>
+        <label for="name">Favorite Name</label>
         <input id="name" type="text" placeholder="Nana" />
         <label for="email">Email</label>
         <input id="email" type="text" placeholder="Nana@example.com" />
@@ -34,14 +37,24 @@
         <div>
           <button id="sendBtn">Submit</button>
         </div>
-        <a target="_blank" href="https://icons8.com/icon/d0gdwaYAz8Nk/gift-box"
-          >Gift Box</a
-        >
-        <div>
-          icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-        </div>
       </form>
     </div>
+    <div>
+      icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+      <p>
+        <strong>Reach us:</strong>
+        <a
+          class="footer-mail"
+          target="_blank"
+          href="mailto:mczionjohnson@gmail.com"
+        >
+          <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+
+          mczionjohnson@gmail.com
+        </a>
+      </p>
+    </div>
+
     <script src="./script/main.js"></script>
   </body>
 </html>
