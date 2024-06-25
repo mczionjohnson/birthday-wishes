@@ -11,18 +11,21 @@ async function sendData(data) {
 
   try {
     //for dev
-    const response = await fetch("http://localhost:8000/v1/join", {
-      //for production
-      // const response = await fetch("https://birthday-wishes-q8gj.onrender.com/v1/join", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: "follow", // manual, *follow, error
-      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body: JSON.stringify(data), // body data type must match "Content-Type" header
-    });
+    // const response = await fetch("http://localhost:8000/v1/join", {
+    //for production
+    const response = await fetch(
+      "https://birthday-wishes-q8gj.onrender.com/v1/join",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+      }
+    );
     console.log(await response.json());
 
     if (response.status == 200) {
