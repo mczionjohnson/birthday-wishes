@@ -120,6 +120,59 @@ schedule.scheduleJob("0 7 * * *", async () => {
   }
 });
 
+//
+schedule.scheduleJob("0 9 * * *", async () => {
+  // schedule.scheduleJob("*/2 * * * *", async () => {
+  // cron job every 07:00am
+
+  //find in db or array
+  const date = new Date().toISOString().split("T")[0];
+  const [year, month, day] = date.split("-");
+
+  convertedMonth = today(month);
+
+  //find users
+  console.log("searching for celebrants...");
+  let users = await User.find({
+    $and: [{ day: day }, { month: { $regex: convertedMonth, $options: "i" } }],
+  });
+
+  if (users.length >= 1) {
+    console.log(`We have ${users.length} celebrants today, Hurray!`);
+
+    //call function
+    return allCelebrants(users);
+  } else {
+    return console.log("well, well, well, no celebrants today");
+  }
+});
+
+//
+schedule.scheduleJob("0 14 * * *", async () => {
+  // schedule.scheduleJob("*/2 * * * *", async () => {
+  // cron job every 07:00am
+
+  //find in db or array
+  const date = new Date().toISOString().split("T")[0];
+  const [year, month, day] = date.split("-");
+
+  convertedMonth = today(month);
+
+  //find users
+  console.log("searching for celebrants...");
+  let users = await User.find({
+    $and: [{ day: day }, { month: { $regex: convertedMonth, $options: "i" } }],
+  });
+
+  if (users.length >= 1) {
+    console.log(`We have ${users.length} celebrants today, Hurray!`);
+
+    //call function
+    return allCelebrants(users);
+  } else {
+    return console.log("well, well, well, no celebrants today");
+  }
+});
 const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
