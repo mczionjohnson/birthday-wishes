@@ -37,7 +37,7 @@ async function sendData(data) {
     }
   } catch (error) {
     console.error(error);
-    return alert(e);
+    return alert(error);
   }
 }
 
