@@ -11,10 +11,9 @@ async function sendData(data) {
 
   try {
     //for dev
-    // const response = await fetch("http://localhost:8000/v1/join", {
-
-    //for production
-      const response = await fetch("https://birthday-wishes-q8gj.onrender.com/v1/join", {
+    const response = await fetch("http://localhost:8000/v1/join", {
+      //for production
+      // const response = await fetch("https://birthday-wishes-q8gj.onrender.com/v1/join", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,11 +27,13 @@ async function sendData(data) {
 
     if (response.status == 200) {
       return alert("Success");
-    }
-    else if (response.status == 400) {
+    } else if (response.status == 400) {
       return alert("unsuccessful, user already exist");
+    } else if (response.status == 422) {
+      return alert("error, check the console for info");
     } else {
-      return alert("Server error");
+      // return alert("Server error");
+      return alert(response);
     }
   } catch (error) {
     console.error(error);

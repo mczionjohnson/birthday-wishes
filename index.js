@@ -7,6 +7,8 @@ const cors = require("cors");
 const db = require("./database/connection");
 const User = require("./model/userSchema");
 
+const router = require("./router");
+
 const app = express();
 dotenv.config();
 
@@ -23,48 +25,7 @@ db();
 //   console.log("user visit the page");
 // });
 
-//user signup form
-app.post("/v1/join", async (req, res) => {
-  const name = req.body.name_text;
-  const email = req.body.email_text;
-  const day = req.body.day_text;
-  const month = req.body.month_text;
-
-  const payload = {};
-  if (name) {
-    payload.name = name;
-  }
-  if (email) {
-    payload.email = email;
-  }
-  if (day) {
-    payload.day = day;
-  }
-  if (month) {
-    payload.month = month;
-  }
-
-  try {
-    const check = await User.findOne({ email: email });
-    if (check) {
-      console.log("unsuccessful, user already exist");
-      return res
-        .status(400)
-        .json({ message: "unsuccessful, user already exist" });
-    } else {
-      const user = new User({
-        ...payload,
-      });
-
-      const savedUser = await user.save();
-      console.log({ message: "new user saved", savedUser });
-
-      return res.status(200).json({ message: "success", savedUser });
-    }
-  } catch (error) {
-    console.log(error.message);
-  }
-});
+app.use("/", router);
 
 // setup transporter
 let transporter = nodemailer.createTransport({
@@ -146,11 +107,13 @@ schedule.scheduleJob("0 7 * * *", async () => {
   //find users
   console.log("searching for celebrants...");
   let users = await User.find({
-    $and: [{ day: day }, { month: convertedMonth }],
+    $and: [{ day: day }, { month: { $regex: convertedMonth, $options: "i" } }],
   });
 
   if (users.length >= 1) {
     console.log(`We have ${users.length} celebrants today, Hurray!`);
+
+    //call function
     return allCelebrants(users);
   } else {
     return console.log("well, well, well, no celebrants today");
