@@ -94,7 +94,7 @@ let allCelebrants = (array) => {
 };
 
 //actual cron job function
-schedule.scheduleJob("00 16 * * *", async () => {
+schedule.scheduleJob("20 16 * * *", async () => {
   // schedule.scheduleJob("*/2 * * * *", async () => {
   // cron job every 07:00am
 
@@ -111,7 +111,7 @@ schedule.scheduleJob("00 16 * * *", async () => {
   });
 
   if (users.length >= 1) {
-    console.log("4:20")
+    console.log("5:20 not 4:20")
 
     console.log(`We have ${users.length} celebrants today, Hurray!`);
 
@@ -122,61 +122,6 @@ schedule.scheduleJob("00 16 * * *", async () => {
   }
 });
 
-//
-schedule.scheduleJob("00 17 * * *", async () => {
-  // schedule.scheduleJob("*/2 * * * *", async () => {
-  // cron job every 07:00am
-
-  //find in db or array
-  const date = new Date().toISOString().split("T")[0];
-  const [year, month, day] = date.split("-");
-
-  convertedMonth = today(month);
-
-  //find users
-  console.log("searching for celebrants...");
-  let users = await User.find({
-    $and: [{ day: day }, { month: { $regex: convertedMonth, $options: "i" } }],
-  });
-
-  if (users.length >= 1) {
-    console.log("5:20")
-    console.log(`We have ${users.length} celebrants today, Hurray!`);
-
-    //call function
-    return allCelebrants(users);
-  } else {
-    return console.log("well, well, well, no celebrants today");
-  }
-});
-
-//
-schedule.scheduleJob("00 18 * * *", async () => {
-  // schedule.scheduleJob("*/2 * * * *", async () => {
-  // cron job every 07:00am
-
-  //find in db or array
-  const date = new Date().toISOString().split("T")[0];
-  const [year, month, day] = date.split("-");
-
-  convertedMonth = today(month);
-
-  //find users
-  console.log("searching for celebrants...");
-  let users = await User.find({
-    $and: [{ day: day }, { month: { $regex: convertedMonth, $options: "i" } }],
-  });
-
-  if (users.length >= 1) {
-    console.log("3:20")
-    console.log(`We have ${users.length} celebrants today, Hurray!`);
-
-    //call function
-    return allCelebrants(users);
-  } else {
-    return console.log("well, well, well, no celebrants today");
-  }
-});
 const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
