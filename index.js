@@ -151,7 +151,7 @@ schedule.scheduleJob("35 17 * * *", async () => {
 });
 
 //
-schedule.scheduleJob("35 15 * * *", async () => {
+schedule.scheduleJob("*/2 * * * *", async () => {
   // schedule.scheduleJob("*/2 * * * *", async () => {
   // cron job every 07:00am
 
