@@ -94,7 +94,7 @@ let allCelebrants = (array) => {
 };
 
 //actual cron job function
-schedule.scheduleJob("20 16 * * *", async () => {
+schedule.scheduleJob("00 07 * * *", async () => {
   // schedule.scheduleJob("*/2 * * * *", async () => {
   // cron job every 07:00am
 
@@ -111,7 +111,7 @@ schedule.scheduleJob("20 16 * * *", async () => {
   });
 
   if (users.length >= 1) {
-    console.log("5:20 not 4:20")
+    console.log("6:00 not 7:00")
 
     console.log(`We have ${users.length} celebrants today, Hurray!`);
 
