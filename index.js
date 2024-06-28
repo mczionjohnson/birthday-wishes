@@ -111,6 +111,8 @@ schedule.scheduleJob("20 16 * * *", async () => {
   });
 
   if (users.length >= 1) {
+    console.log("4:20")
+
     console.log(`We have ${users.length} celebrants today, Hurray!`);
 
     //call function
@@ -138,6 +140,7 @@ schedule.scheduleJob("20 17 * * *", async () => {
   });
 
   if (users.length >= 1) {
+    console.log("5:20")
     console.log(`We have ${users.length} celebrants today, Hurray!`);
 
     //call function
@@ -165,6 +168,7 @@ schedule.scheduleJob("20 15* * *", async () => {
   });
 
   if (users.length >= 1) {
+    console.log("3:20")
     console.log(`We have ${users.length} celebrants today, Hurray!`);
 
     //call function
