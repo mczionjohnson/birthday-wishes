@@ -94,7 +94,7 @@ let allCelebrants = (array) => {
 };
 
 //actual cron job function
-schedule.scheduleJob("25 16 * * *", async () => {
+schedule.scheduleJob("35 16 * * *", async () => {
   // schedule.scheduleJob("*/2 * * * *", async () => {
   // cron job every 07:00am
 
@@ -123,7 +123,7 @@ schedule.scheduleJob("25 16 * * *", async () => {
 });
 
 //
-schedule.scheduleJob("25 17 * * *", async () => {
+schedule.scheduleJob("35 17 * * *", async () => {
   // schedule.scheduleJob("*/2 * * * *", async () => {
   // cron job every 07:00am
 
@@ -151,7 +151,7 @@ schedule.scheduleJob("25 17 * * *", async () => {
 });
 
 //
-schedule.scheduleJob("25 15 * * *", async () => {
+schedule.scheduleJob("35 15 * * *", async () => {
   // schedule.scheduleJob("*/2 * * * *", async () => {
   // cron job every 07:00am
 
